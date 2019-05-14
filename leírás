@@ -1,0 +1,44 @@
+OPENCV-PYTHON-PHP-KOTLIN hibrid képfeldolgozó
+
+A rendszerem egy képet vár majd, azt dolgozza fel automatikusan, majd a kész vágott, transzformált és
+javított képet visszajelzi.
+
+Webes felületen az alkalmazás egy képfeltöltés után konvertál,
+míg a telefonos megoldás a webes api-val kommunikálva adja vissza
+a képet (egyszerre 1-et, melyet az eszközön tud be fényképezni a felhasználó).
+
+A folyamat hasonló, de míg a webes felület képes több fájl feldolgozása is megoldható egy kattintással,
+addig az Androidos megoldáshoz tartozik a hordozhatóság pozitívumai.
+
+Mindkét mód használatához internet szükséges (maga a Python script "offline" működik, más harmadik fél szoftverét nem használja,
+a beküldött adatokat nem küldi tovább).
+
+Technikai leírás:
+  A kapott képet php scriptel veszem át, ellenörzöm.
+  Az ellenörzésen átesett képet egy másik Python scriptel feldolgozm(főképpen OpenCV-re támaszkodva)
+  Az python script kimenetét visszaküldöm a php-s backenddel.
+  
+  Az ellenörzés forán a mime tipust ellenörzöm, illetve a kép méretét.
+  
+  A python script a képet veszi inputként, és különböző eljárásokkal feljavítja/lerontja a kép minőségét.
+  Az így kapott kép alkalmasabb az éldetektálára, mint az eredeti.
+      Első lépésben a kép méretét csökkentem, majd átalakítomm szürkeskálás képpé.
+      John F. Canny algoritmusa segítségével éleket keresek (saját tesztek alapján a cv2.Canny(gray, 75, 200) funkció adta az
+      ideális állapotot, ahol gray a leméretezett szürkeskálás kép, a 75 illetve a 200 pedig a két határérték).
+  Az így kapott élek segítségével megkeresem a leghangsúlyosabb kontúrokat.
+  Mivel tudom hogy egy téglalapnak(átlagos A4es lapnak) 4 éle van így a kontúrokban keresek egy olyat,
+  melyekre ez a kondíció megfelel.
+  
+  Amennyiben nincs ilyen, az élkeresés meghiúsult- valószínű okok, kitakart/megszakadó élek 
+  más tárgy, illetve rossz megvilágítás miatt.
+  Ezt visszajelzem, jobb minőségi kép reményében.
+  
+  Ha találtam, akkor a 4 csúcs alapján áttranszformálom a képet(az eredetit). 
+  Az így kivágott képet, több módszerrel is meg lehet próbálni javítani...
+    -élesítés. ("túljavíthatja" a képet, amikor a kép élei egy szint után nem reálisak)
+    -zajszűrés. (ronthatja a kép minőségét)
+    -szín éllénkítés. (a kép veszthet az valóságérzetéből)
+  
+  
+  
+
