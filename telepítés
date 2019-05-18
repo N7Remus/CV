@@ -1,0 +1,23 @@
+A környezet amire szükségünk lesz:
+
+Python 3.6 vagy nagyobb
+scikit-image modul
+imutils modul
+opencv-python modul
+numpy modul
+a paraméterezéshez argparse modul
+
+
+Linux alatt - telepítsük a csomagkezelőből a python3 csomagot, illetve a pip3 csomagot
+Windows alatt - válasszunk egy python csomagot, majd telpítsük 
+
+Teszteléshez én a PyCharm programot ajánlom, ami könnyíti a modul letöltést.
+
+Majd töltsük le a csomagokat.
+
+A webes rész PHP7.x-et használ, de egyszerűsége miatt visszafele is kompatibilis lehet.
+A webszerver Apache 2.4 alatt fut.
+
+A fájlok elhelyezése tetszőlegesen történik, viszont a python fileok elérését, illetve a kész fájlokelérésének útvonalát
+meg kell adni a php-nak.
+
