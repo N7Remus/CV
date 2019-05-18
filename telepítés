@@ -5,6 +5,7 @@ scikit-image modul
 imutils modul
 opencv-python modul
 numpy modul
+os modul
 a paraméterezéshez argparse modul
 
 
