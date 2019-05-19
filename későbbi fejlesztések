@@ -1,0 +1,8 @@
+fejlesztések, amiket érdemes lenne még implementálni
+
+- https://github.com/tsurumeso/waifu2x-chainer
+  egy python alapú képjavítószoftver, módszerek keresése közben leltem fel, youtubeon említette egy a témában dolgozó videós
+  ígéretes, viszont nagy gépigényű(feltételezve ha számít az időbeli lefutás)
+
+- OpenCV Gamma Korrekció
+- RGB szín korrekció
