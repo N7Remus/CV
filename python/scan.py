@@ -48,11 +48,7 @@ def four_point_transform(image, pts):
 	heightB = np.sqrt(((tl[0] - bl[0]) ** 2) + ((tl[1] - bl[1]) ** 2))
 	maxHeight = max(int(heightA), int(heightB))
 	# most átalakítjuk a képet, a kiszámolt méretekre
-	# now that we have the dimensions of the new image, construct
-	# the set of destination points to obtain a "birds eye view",
-	# (i.e. top-down view) of the image, again specifying points
-	# in the top-left, top-right, bottom-right, and bottom-left
-	# order
+	
 	dst = np.array([
 		[0, 0],
 		[maxWidth - 1, 0],
