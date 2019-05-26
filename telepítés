@@ -20,5 +20,5 @@ A webes rész PHP7.x-et használ, de egyszerűsége miatt visszafele is kompatib
 A webszerver Apache 2.4 alatt fut.
 
 A fájlok elhelyezése tetszőlegesen történik, viszont a python fileok elérését, illetve a kész fájlokelérésének útvonalát
-meg kell adni a php-nak.
+meg kell adni a php-nak.(szerver oldali config)
 
