@@ -1,14 +1,11 @@
-OPENCV-PYTHON-PHP-KOTLIN hibrid képfeldolgozó
+OPENCV-PYTHON-PHP hibrid képfeldolgozó
 
 A rendszerem egy képet vár majd, azt dolgozza fel automatikusan, majd a kész vágott, transzformált és
 javított képet visszajelzi.
 
 Webes felületen az alkalmazás egy képfeltöltés után konvertál,
-míg a telefonos megoldás a webes api-val kommunikálva adja vissza
-a képet (egyszerre 1-et, melyet az eszközön tud be fényképezni a felhasználó).
+a képet (egyszerre 1-et).
 
-A folyamat hasonló, de míg a webes felület képes több fájl feldolgozása is megoldható egy kattintással,
-addig az Androidos megoldáshoz tartozik a hordozhatóság pozitívumai.
 
 Mindkét mód használatához internet szükséges (maga a Python script "offline" működik, más harmadik fél szoftverét nem használja,
 a beküldött adatokat nem küldi tovább).
