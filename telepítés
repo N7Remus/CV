@@ -10,7 +10,7 @@ a paraméterezéshez argparse modul
 
 
 Linux alatt - telepítsük a csomagkezelőből a python3 csomagot, illetve a pip3 csomagot
-Windows alatt - válasszunk egy python csomagot, majd telpítsük 
+Windows alatt - válasszunk egy python környezetet, majd telpítsük (a modulokat is)
 
 Teszteléshez én a PyCharm programot ajánlom, ami könnyíti a modul letöltést.
 
