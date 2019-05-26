@@ -48,7 +48,11 @@ def four_point_transform(image, pts):
 	heightB = np.sqrt(((tl[0] - bl[0]) ** 2) + ((tl[1] - bl[1]) ** 2))
 	maxHeight = max(int(heightA), int(heightB))
 	# most átalakítjuk a képet, a kiszámolt méretekre
-	
+	# now that we have the dimensions of the new image, construct
+	# the set of destination points to obtain a "birds eye view",
+	# (i.e. top-down view) of the image, again specifying points
+	# in the top-left, top-right, bottom-right, and bottom-left
+	# order
 	dst = np.array([
 		[0, 0],
 		[maxWidth - 1, 0],
@@ -61,6 +65,10 @@ def four_point_transform(image, pts):
 
 	# return the warped image
 	return warped
+def invertal(image, name):
+    image_i = (255-image)
+    #image_i = cv2.bitwise_not(image)
+    cv2.imwrite(outpath+"_n.jpeg", image_i)
 
 # Itt vesszem át a paramétereket
 ap = argparse.ArgumentParser()
@@ -70,32 +78,38 @@ ap.add_argument("-o", "--output", required = True,
 	help = "A kimeneti kép elérési útvonala")
 # opcionális
 # todo
-
 ap.add_argument("-m", "--median", required = False,
-	help = "median filterezés")
+	help = "median filterezés-Só és bors zaj-ellen")
+#median = cv2.medianBlur(img,5) - 50%
+
 #Zajszűrés
-'''
-Só és bors zaj
-Gauss
-Poisson
-'''
+ap.add_argument("-g", "--gauss", required = False,
+	help = "Gaussian zajcsökkentés-holmályosítja a képet")
+
 #Élesítés - A zajokat is kiemeli
-#blur = cv2.bilateralFilter(img,9,75,75) textúrákat csökkenti, az éleket meghagyja
 ap.add_argument("-b", "--bilinear", required = False,
 	help = "bilineáris filter")
+#blur = cv2.bilateralFilter(img,9,75,75) textúrákat csökkenti, az éleket meghagyja
+
 ap.add_argument("-n", "--invert", required = False,
 	help = "negatív kép")
-#median = cv2.medianBlur(img,5) - 50%
-ap.add_argument("-h", "--histogram", required = False,
+# függvény-ok
+
+ap.add_argument("-hi", "--histogram", required = False,
 	help = "histogram normalizálás")
+'''
+# CLAHE (Contrast Limited Adaptive Histogram Equalization)
+# create a CLAHE object (Arguments are optional).
+clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+cl1 = clahe.apply(image)
+cv2.imwrite('clahe_2.jpg',cl1)
+'''
 ap.add_argument("-k", "--kotnraszt", required = False,
 	help = "kotraszt normalizálás")
 #Kvantálás
 ap.add_argument("-kv", "--kvantalas", required = False,
-	help = "Kvantálás")
-# Szín javítás?
-ap.add_argument("-c", "--color", required = False,
-	help = "color")
+	help = "Kvantálás-quantization")
+
 
 args = vars(ap.parse_args())
 
