@@ -18,12 +18,22 @@ Technikai leírás:
   Az ellenörzés forán a mime tipust ellenörzöm, illetve a kép méretét.
   
   A python script a képet veszi inputként, és különböző eljárásokkal feljavítja/lerontja a kép minőségét.
+  Ilyen eljárások :
+    Median filterezés
+    Gauss-filterezés
+    Bilieáris filterezés 
+    Kép színének invertálása
+    Kontraszt normalizálás
+    Szín kvantálás
+   
+  Ezeket az eljárásokat, a vágás után is végzi a program paramétertől függően.
+  
   Az így kapott kép alkalmasabb az éldetektálára, mint az eredeti.
       Első lépésben a kép méretét csökkentem, majd átalakítomm szürkeskálás képpé.
       John F. Canny algoritmusa segítségével éleket keresek (saját tesztek alapján a cv2.Canny(gray, 75, 200) funkció adta az
       ideális állapotot, ahol gray a leméretezett szürkeskálás kép, a 75 illetve a 200 pedig a két határérték).
   Az így kapott élek segítségével megkeresem a leghangsúlyosabb kontúrokat.
-  Mivel tudom hogy egy téglalapnak(átlagos A4es lapnak) 4 éle van így a kontúrokban keresek egy olyat,
+  Mivel tudom hogy egy téglalapnak(átlagos A4-es lapnak) 4 éle van így a kontúrokban keresek egy olyat,
   melyekre ez a kondíció megfelel.
   
   Amennyiben nincs ilyen, az élkeresés meghiúsult- valószínű okok, kitakart/megszakadó élek 
@@ -34,7 +44,7 @@ Technikai leírás:
   Az így kivágott képet, több módszerrel is meg lehet próbálni javítani...
     -élesítés. ("túljavíthatja" a képet, amikor a kép élei egy szint után nem reálisak)
     -zajszűrés. (ronthatja a kép minőségét)
-    -szín éllénkítés. (a kép veszthet az valóságérzetéből)
+    -szín kvantálás (a kép veszthet az valóságérzetéből, darabossá válhat)
   
   
   
