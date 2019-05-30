@@ -9,8 +9,7 @@ import argparse
 import cv2
 import imutils
 import os.path
-
-
+# Függvénydefiníciók
 def order_points(pts):
     # koordinátákból listát készítek,
     # úgy, hogy az első elem a listában a bal felső,
