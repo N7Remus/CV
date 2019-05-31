@@ -192,7 +192,8 @@ A be scannnelést, gátló tényezők:
 
 Az alkalmazás olyan képek scannelésére alkalmas, ahol az objektum erős, jól elkülöníthető kontúrokkal rendelkezik.
 
-----------------------------Források---------------------------------
+Források
+
 https://docs.opencv.org/3.1.0/d4/d13/tutorial_py_filtering.html
 https://docs.opencv.org/3.1.0/d5/daf/tutorial_py_histogram_equalization.html
 https://docs.python.org/3/howto/argparse.html
