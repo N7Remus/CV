@@ -19,7 +19,7 @@ Szoftveres követelmények:
 Tesztelve lett Manjaro linuxon, Ubuntu LTS 18.04 linuxon-en,és Windows 10-en.
 
     • Linux alatt - telepítsük a csomagkezelőből a python3 csomagot, illetve a pip3 csomagot, majd telpítsük a modulokat is.
-    •         Windows alatt - válasszunk egy python környezetet, majd telpítsük (a modulokat is).
+    • Windows alatt - válasszunk egy python környezetet, majd telpítsük (a modulokat is).
 
 Teszteléshez én a PyCharm programot ajánlom, ami könnyíti a modul letöltést.
         https://www.jetbrains.com/pycharm/
@@ -56,6 +56,7 @@ Miután a python script lefutott, a kész képet visszatölti, illetve engedély
 
 Parancsoros rész: --------------------------------------------------------------------------------
 Paraméterek :
+
 scan.py [-h] -i IMAGE -o OUTPUT [-m_o MEDIAN_O] [-g_o GAUSS_O]
                [-b_o BILINEAR_O] [-n_o INVERT_O] [-c_o CLAHE_O]
                [-kv_o KVANTALAS_O] [-m MEDIAN] [-g GAUSS] [-b BILINEAR]
@@ -201,5 +202,8 @@ https://people.csail.mit.edu/sparis/bf_course
 https://www.pyimagesearch.com
 https://www.youtube.com/watch?v=C_zFhWdM4ic
 https://pinetools.com/add-noise-image
+
 Illetve az órai példák.
-Köszönöm a figyelmet!							Rémai Gábor László (Y2XJG3)
+
+Köszönöm a figyelmet!
+Rémai Gábor László (Y2XJG3)
